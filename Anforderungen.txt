@@ -1,0 +1,33 @@
+Keep it as simple as possible!
+
+Boot:
+	monohull
+
+	monosail
+
+	Auftriebskörper komplett abgedichtet:
+		keine Beweglichen Teile gehen hinein/heraus 
+		
+Sensoren und Technik:	
+
+	Sensoren:
+		verklicker
+		Compass
+		Akkustand-leser
+		GPS
+		
+	Geräte:
+		Hauptrechner
+			(Sekundärrechner?)
+		Servos
+		Mechanische Lenkung
+		Satellitentelefon
+		
+		(Video/Bildübertragung: ?)
+			Kamera
+			Handynetz ---> Übertragen der Daten
+
+	Stromversorgung:
+		Akkus
+		Solarzellen
+		(Windkraftanlage?)
