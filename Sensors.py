@@ -31,18 +31,18 @@ class Sensors():
         self.__Position = self.__setPosition()
         self.__courseMadeGood = self.__setCourseMadeGood()
         self.__speedOverGround = self.__setSpeedOverGround()
-        
+
 ############################################ setter (read Sensors) -->
 
     def __setWindDirection(self):
-        pass
+        return 0
     def __setCompassCourse(self):
-        pass
+        return 40
     def __setAkku(self):
-        pass
+        return 100
     def __setPosition(self):
-        pass
+        return [53.570110,9.674878]
     def __setCourseMadeGood(self):
-        pass
+        return 45
     def __setSpeedOverGround(self):
-        pass
+        return 1.8
