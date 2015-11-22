@@ -1,0 +1,2 @@
+class Sailor():
+    pass
