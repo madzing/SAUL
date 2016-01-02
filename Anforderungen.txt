@@ -5,27 +5,29 @@ Boot:
 
 	monosail
 
-	Auftriebskörper komplett abgedichtet:
+	AuftriebskÃ¶rper komplett abgedichtet:
 		keine Beweglichen Teile gehen hinein/heraus 
 		
 Sensoren und Technik:	
 
 	Sensoren:
-		verklicker
+		verklicker	kann man aus einem Kompass bauen der vom FaÃ¤hnchen ausgerichtet wird
 		Compass
 		Akkustand-leser
 		GPS
+		Compass mit Gravitationssensor, sonst klappt das alles nicht wenn das Moot mal wackelt... 
+			z.B. das hier https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/overview
 		
-	Geräte:
+	GerÃ¤te:
 		Hauptrechner
-			(Sekundärrechner?)
+			(SekundÃ¤rrechner?)
 		Servos
 		Mechanische Lenkung
 		Satellitentelefon
 		
-		(Video/Bildübertragung: ?)
+		(Video/BildÃ¼bertragung: ?)
 			Kamera
-			Handynetz ---> Übertragen der Daten
+			Handynetz ---> Ãœbertragen der Daten
 
 	Stromversorgung:
 		Akkus
