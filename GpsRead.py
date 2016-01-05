@@ -7,20 +7,20 @@
 import os
 
 class GpsRead:
-    _eingabe = ""
+    _logFile = ""
     _fin = os
     _letzteDatenmenge = 0
 
-    def __init__(self,eingabe):
-        self._eingabe = eingabe
-        self._fin = open(eingabe)
+    def __init__(self,logFile):
+        self._logFile = logFile
+        self._fin = open(logFile)
         for line in self._fin:
            self._fin.readline()
-        statinfo = os.stat(self._eingabe)
+        statinfo = os.stat(self._logFile)
         self._letzteDatenmenge = statinfo.st_size
 
     def istNewData(self):
-        statinfo = os.stat(self._eingabe)
+        statinfo = os.stat(self._logFile)
         if self._letzteDatenmenge < statinfo.st_size:
             self._letzteDatenmenge = statinfo.st_size
             return True
@@ -44,7 +44,7 @@ class GpsRead:
             endPos = self.findnth(string,',',8)
             velocity = string[startPos+1:endPos]
             return float(velocity)
-            
+
     def findnth(self,s, substr, n):
         offset = -1
         for i in range(n):
