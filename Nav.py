@@ -1,19 +1,18 @@
 import math
-from vesselInfoList import VesselInfoList
+from VesselInfoList import VesselInfoList
 
 class Nav(self):
     def __init__(self,sensorService):
         vesselInfoList = VesselInfoList(100) # die letzten 100 Messungen werden gespeichert
         sensorService = sensorService
-    def go(self):
+    def calculateNewDesiredCompassBearing(self):
         vesselInfoList.writeNewInfo(sensorService.getPosition,sensorService.getDateTime,sensorService.getCompassBearing,sensorService.getWindDirection,sensorService.getBattery)
 
 
 
 
 
-
-# Private Methods
+# Private Methods --->
     def __distanceCalc(self,pos1,pos2):
         start_lat = math.radians(pos1[0])
         start_long = math.radians(pos1[1])
