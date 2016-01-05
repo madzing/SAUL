@@ -1,3 +1,5 @@
+import datetime
+
 class Sensors():
     def __init__(self):
         self.__setAllValues()
@@ -7,14 +9,17 @@ class Sensors():
     def getWindDirection(self):
         return self.__windDirection
 
-    def getCompassCourse(self):
+    def getCompassBearing(self):
         return self.__compassCourse
 
-    def getAkku(self):
+    def getBattery(self):
         return self.__Akku
 
     def getPosition(self):
         return self.__Position
+
+    def getDateTime(self):
+        return self.__Time
 
     def getCourseMadeGood(self):
         return self.__courseMadeGood
@@ -36,12 +41,14 @@ class Sensors():
 
     def __setWindDirection(self):
         return 0
-    def __setCompassCourse(self):
+    def __setCompassBearing(self):
         return 40
-    def __setAkku(self):
+    def __setBattery(self):
         return 100
     def __setPosition(self):
         return [53.570110,9.674878]
+    def setDateTime(self):
+        return datetime.datetime.now()
     def __setCourseMadeGood(self):
         return 45
     def __setSpeedOverGround(self):
