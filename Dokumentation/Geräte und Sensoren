@@ -1,0 +1,26 @@
+Rechner:
+    Raspberry Pi 2 Model B
+
+Magnetometer für Verklicker:
+    HMC5883L
+
+accelerometer, magnetometer und gyroscope in einem chip als Kompass:
+    BNO055
+
+Gps-modul:
+    GY-GPS6MV2
+
+Servos:
+    ?
+
+mobilfunk-modul:
+    ?
+
+satellitentelefon-modul:
+    ?
+
+Akkus:
+    ?
+
+Solarpanels:
+    ?

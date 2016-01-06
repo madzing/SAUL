@@ -23,7 +23,7 @@ Sensoren und Technik:
 			(Sekundärrechner?)
 		Servos
 		Faltenbalg für Kraftübertragung aus dem Auftriebskörper.
-		Mechanische Lenkung
+		Mechanische Lenkung?
 		Satellitentelefon
 
 		(Video/Bildübertragung: ?)
