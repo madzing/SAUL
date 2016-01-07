@@ -19,7 +19,7 @@ class Sensors():
         return self.__Position
 
     def getDateTime(self):
-        return self.__Time
+        return self.__DateTime
 
     def getCourseMadeGood(self):
         return self.__courseMadeGood
@@ -28,6 +28,8 @@ class Sensors():
         return self.__speedOverGround
 
 ############################################  set all values
+    def isNewData(self):
+        pass
 
     def setAllValues(self):
         self.__windDirection = self.__setWindDirection()
@@ -36,6 +38,7 @@ class Sensors():
         self.__Position = self.__setPosition()
         self.__courseMadeGood = self.__setCourseMadeGood()
         self.__speedOverGround = self.__setSpeedOverGround()
+        self.__DateTime = self.__setDateTime()
 
 ############################################ setter (read Sensors) -->
 
@@ -47,7 +50,7 @@ class Sensors():
         return 100
     def __setPosition(self):
         return [53.570110,9.674878]
-    def setDateTime(self):
+    def __setDateTime(self):
         return datetime.datetime.now()
     def __setCourseMadeGood(self):
         return 45

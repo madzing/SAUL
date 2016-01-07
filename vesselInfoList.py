@@ -1,7 +1,7 @@
 import math
 import datetime
 
-class VesselInfoList(self):
+class VesselInfoList():
     def __init__(self,maxListLen):
         self.list = []
         self.maxListLen = maxListLen

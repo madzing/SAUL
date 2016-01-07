@@ -1,12 +1,29 @@
 import math
 from VesselInfoList import VesselInfoList
+from Sensors import Sensors
 
 class Nav(self):
     def __init__(self,sensorService):
-        vesselInfoList = VesselInfoList(100) # die letzten 100 Messungen werden gespeichert
-        sensorService = sensorService
+        self.vesselInfoList = VesselInfoList(100) # die letzten 100 Messungen werden gespeichert
+        self.sensorService = sensorService
+        self.desiredCompassBearing = self.calculateNewDesiredCompassBearing()
+
+    def getDesiredCompassBearing(self):
+        pos = sensorService.getPosition()
+        dateTime = sensorService.getDateTime()
+        compassBearing = sensorService.getCompassBearing()
+        windDirection = sensorService.getWindDirection()
+        battery = sensorService.getBattery()
+        lastListElement = self.vesselInfoList[len(self.vesselInfoList)-1]
+        if  lastListElement[0] != pos and lastListElement[1] != dateTime and lastListElement[2] != compassBearing and lastListElement[3] != windDirection:
+            self.vesselInfoList.writeNewInfo(pos,dateTime,compassBearing,windDirection,battery)
+            self.calculateNewCompassBearing()
+        return self.desiredCompassBearing
+
     def calculateNewDesiredCompassBearing(self):
-        vesselInfoList.writeNewInfo(sensorService.getPosition,sensorService.getDateTime,sensorService.getCompassBearing,sensorService.getWindDirection,sensorService.getBattery)
+        newBearing = 0
+        self.desiredCompassBearing = newBearing
+
 
 
 
