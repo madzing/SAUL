@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Elektronik &mdash; SAUL 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SAUL 1 documentation" href="index.html" />
+    <link rel="prev" title="Anforderungen" href="anforderungen.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="anforderungen.html" title="Anforderungen"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SAUL 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="elektronik">
+<h1>Elektronik<a class="headerlink" href="#elektronik" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stromverbrauch-und-stromversorgung">
+<h2>Stromverbrauch und Stromversorgung<a class="headerlink" href="#stromverbrauch-und-stromversorgung" title="Permalink to this headline">¶</a></h2>
+<p>Zu klären:</p>
+<ul class="simple">
+<li>Wie groß ist der Stromverbrauch? (min/max)</li>
+<li>Wie lange soll das Boot ohne Sonne fahren können?</li>
+<li>Wie schnell sollen die Ackus wieder geladen sein?</li>
+<li>Wie viele Ackus könne wir mitnehmen?</li>
+</ul>
+<div class="section" id="stromverbrauch">
+<h3>Stromverbrauch:<a class="headerlink" href="#stromverbrauch" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="31%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Verbraucher</td>
+<td>U_{in}</td>
+<td>I max.</td>
+<td>I avr.</td>
+<td>Quelle</td>
+</tr>
+<tr class="row-even"><td>Rasperry Pi</td>
+<td>5V</td>
+<td>500 mA</td>
+<td>(200-500) mA</td>
+<td><a class="reference external" href="https://www.elektronik-kompendium.de/sites/raspberry-pi/1910071.html">Raspberry Stromverbrauch</a></td>
+</tr>
+<tr class="row-odd"><td>Servos</td>
+<td>(4.5-6) V</td>
+<td>(1.15-1.6) A</td>
+<td>(175-250) mA</td>
+<td><a class="reference external" href="http://www.flyheli.de/rxversorgung.htm">http://www.flyheli.de/rxversorgung.htm</a></td>
+</tr>
+<tr class="row-even"><td>Sat.-mobile RockBLOCK</td>
+<td>5V</td>
+<td>450 mA</td>
+<td>100 mA</td>
+<td><a class="reference external" href="http://www.makersnake.com/rockblock/">http://www.makersnake.com/rockblock/</a></td>
+</tr>
+<tr class="row-odd"><td>Adafruit GPS shield</td>
+<td>3.3 V (from Pi)</td>
+<td>20 mA</td>
+<td>20 mA</td>
+<td><a class="reference external" href="https://www.adafruit.com/products/2324">https://www.adafruit.com/products/2324</a></td>
+</tr>
+<tr class="row-even"><td>Adafruit 9-DOF (2x)</td>
+<td>3-5 V (from Pi)</td>
+<td>~mA</td>
+<td>~mA</td>
+<td><a class="reference external" href="https://www.adafruit.com/products/2021">https://www.adafruit.com/products/2021</a></td>
+</tr>
+</tbody>
+</table>
+<p>In der Summe ein ungefährer Stromverbrauch von ~750 mA bei ca. U~5 V.</p>
+<p>Bei einer Dunkelzeit von 24 muss der Acku bei einer Spannung von 5 V eine Kapazität von:</p>
+<ul class="simple">
+<li>24 h * 750 mA = 18 Ah</li>
+<li>24 h * 0,750 A * 5 V = 24 h * 3,75 W = 90 Wh</li>
+</ul>
+<p>Verlustleistung Spannungswandler:
+20%-30% Verlustleistung <a class="reference external" href="https://www.conrad.de/de/dcdc-wandler-mean-well-sd-15b-5-5-vdc-3-a-1297246.html?gclid=Cj0KEQiAn8i0BRDur-HV1PCTy4UBEiQAPuFr9HGKw4jSRbwyD_14551PHsOlSse1eryOi-f7nrH6cfsaArnb8P8HAQ&amp;insert_kz=VQ&amp;hk=SEM&amp;WT.srch=1&amp;WT.mc_id=google_pla&amp;s_kwcid=AL!222!3!61621373937!!!g!!&amp;ef_id=VDqdIwAAABRY9cC2:20160110204649:s">DC/DC-Wandler</a> 12V/5V</p>
+</div>
+<div class="section" id="solarzellen">
+<h3>Solarzellen:<a class="headerlink" href="#solarzellen" title="Permalink to this headline">¶</a></h3>
+<p>Dei meisten Solarzellen besitzten eine Ausgangsspannung von 12 V, deswegen gibt es in diesem Bereich das meiste Angebot und ich habe jetzt mal eine 12 V Solarpanel angenommen. Acku und Umspanner müssen dann angepasst werden.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="22%" />
+<col width="22%" />
+<col width="13%" />
+<col width="14%" />
+<col width="9%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Solarzelle</td>
+<td>Ausgangsspannung</td>
+<td>Ausgangsstrom max.</td>
+<td>Leistung</td>
+<td>Link</td>
+<td>Preis</td>
+</tr>
+<tr class="row-even"><td>Offgridtec® Poly</td>
+<td>12 V</td>
+<td>570 mA</td>
+<td>10 Watt</td>
+<td><a class="reference external" href="https://www.offgridtec.com/offgridtecr-10-watt-poly-12v-solarpanel.html">Offgridtec</a></td>
+<td>22,90 €</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ackus">
+<h3>Ackus:<a class="headerlink" href="#ackus" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="22%" />
+<col width="22%" />
+<col width="13%" />
+<col width="14%" />
+<col width="8%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Acku</td>
+<td>Ausgangsspannung</td>
+<td>Kapazität</td>
+<td>Gewicht</td>
+<td>Link</td>
+<td>Preis</td>
+</tr>
+<tr class="row-even"><td>FLOUREON®</td>
+<td>11,1 V</td>
+<td>5500 mAh/61 Wh</td>
+<td>417 g</td>
+<td><a class="reference external" href="http://www.amazon.de/FLOUREON%C2%AE-XT60-Stecker-Modellbau-Hubschrauber-Helicopter/dp/B00LMPYTOU/ref=sr_1_10?ie=UTF8&amp;qid=1452456938&amp;sr=8-10&amp;keywords=modellbau+akku">FLOUREON</a></td>
+<td>~30 €</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Elektronik</a><ul>
+<li><a class="reference internal" href="#stromverbrauch-und-stromversorgung">Stromverbrauch und Stromversorgung</a><ul>
+<li><a class="reference internal" href="#stromverbrauch">Stromverbrauch:</a></li>
+<li><a class="reference internal" href="#solarzellen">Solarzellen:</a></li>
+<li><a class="reference internal" href="#ackus">Ackus:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="anforderungen.html"
+                        title="previous chapter">Anforderungen</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/elektronik.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="anforderungen.html" title="Anforderungen"
+             >previous</a> |</li>
+        <li><a href="index.html">SAUL 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Michael Stamm, Jan Metzing, David.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
