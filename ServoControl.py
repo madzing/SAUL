@@ -2,8 +2,10 @@ class ServoControl():
     def __init__(self,rudderPos,sailPos):
         self.rudderPos = rudderPos
         self.sailPos = sailPos
-        self.changeRudderPos(self,self.rudderPos)
-        self.changeRudderPos(self,self.sailPos)
+        self.rudderPos = 6
+        self.sailPos = 6
+        self.rudderMax = 8
+        self.rudderMin = 2
 
     def getCurrentRudderPos(self):
         return self.rudderPos
@@ -11,10 +13,13 @@ class ServoControl():
     def getCurrentSailPos(self):
         return self.sailPos
 
-    def changeRudderPos(self,newPos):
-        self.rudderPos = newPos
+    def turnRight(self):
+        if self.rudderPos < self.rudderMax:
+            self.rudderPos = self.rudderPos + 0.1
         #--> steuer den servo über pwm
-
+    def turnLeft(self):
+        if self.rudderPos > self.rudderMin:
+            self.rudderPos = self.rudderPos - 0.1
     def changeSailPos(self,newPos):
         self.sailPos = newPos
         #--> steuer den servo über pwm

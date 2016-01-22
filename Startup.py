@@ -4,9 +4,8 @@ from Sensors import Sensors
 from Nav import Nav
 from Sailor import Sailor
 
-
 sensorService = Sensors()
-nav = Nav(SensorService)
+nav = Nav(SensorService,"Wegpunkte.txt","WegpunkteLog.txt")
 sailor = Sailor(SensorService)
 
 serialRead = ReadSerial("/dev/ttyAMA0",9600,"$GPRMC.log","w")
@@ -17,8 +16,8 @@ while true():
     runTime = time.time()
     ##################################################---> Hauptschleifeninhalt
     sensorService.setAllValues()
-    DesiredCompassBearing = nav.getDesiredCompassBearing()
-    sailor.sail(DesiredCompassBearing)
+    DesiredBearing = nav.getDesiredBearing(1)
+    sailor.sail(DesiredBearing)
     ##################################################<--- Hauptschleifeninhalt
     endTime = time.time()
     wait = round((1/50)-(endTime-runTime),5)
