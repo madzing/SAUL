@@ -7,7 +7,6 @@ class Sailor:
     def __init__(self,sensorService):
         self.sensorService = sensorService
         self.servoControl = ServoControl(6,6)
-        self.compassBearingList = []
         self.hoeheAmWind = 30 # Min Höhe am Wind
         self.toleranz = 1 # grad pro sekunde
 
@@ -16,8 +15,9 @@ class Sailor:
         actualCompassBearing = self.sensorService.getCompassBearing()
         courseMadeGood = self.sensorService.getCourseMadeGood()
         winkelgesch = self.sensorService.getWinkelgesch()
+        meanCompassBearing = self.sensorService.getMeanCompassBearing()
 
-        desiredCompassBearing = self.calculateDesiredCompassBearing(actualCompassBearing,courseMadeGood,desiredBearing)
+        desiredCompassBearing = self.calculateDesiredCompassBearing(actualCompassBearing,meanCompassBearing,courseMadeGood,desiredBearing)
         # do stuff so that actual an desired-compassBearing become equal --->
         if math.fabs(windDirection.getDiffTo(desiredCompassBearing)) >= self.hoeheAmWind:
             self.adjustRudder(desiredCompassBearing,actualCompassBearing,winkelgesch)
@@ -28,6 +28,7 @@ class Sailor:
         # adjust Sails -->
         self.adjustSails(actualCompassBearing,windDirection)
 
+<<<<<<< HEAD
 # funktioniert noch nicht. Durchschnitt von Kompasskursen berechen schwieriger als gedacht.
     def calculateDesiredCompassBearing(self,actualCompassBearing,courseMadeGood,desiredBearing):
         self.compassBearingList.append(actualCompassBearing)
@@ -41,6 +42,14 @@ class Sailor:
                 abdrift = 0
             return desiredBearing.add(abdrift)
         return desiredBearing
+=======
+    def calculateDesiredCompassBearing(self,actualCompassBearing,meanCompassBearing,courseMadeGood,desiredBearing):
+        abdrift = meanCompassBearing.getDiffTo(courseMadeGood)
+        if abdrift > 20:    #eine Abdrift größer 20 Grad hat wahrscheinlich andere Hintergründe
+            abdrift = 0
+        return desiredBearing.substract(abdrift)
+
+>>>>>>> dc1e63636dbf2a96c705a4bbb47d390527d98909
 
     def adjustSails(self,compassBearing,windDirection):
         self.servoControl.changeSailPos(math.fabs(compassBearing.getDiffTo(windDirection)))
@@ -52,5 +61,12 @@ class Sailor:
             desiredWinkelgesch = desiredWinkelgesch * -1
         if winkelgesch < desiredWinkelgesch - self.toleranz:
             self.servoControl.turnRight
-        if winkelgesch > desiredWinkelgesch + self.toleranz:
+            print("turnRight")
+            print("desiredWinkelgesch:",desiredWinkelgesch)
+        elif winkelgesch > desiredWinkelgesch + self.toleranz:
             self.servoControl.turnLeft
+            print("turnLeft")
+            print("desiredWinkelgesch:",desiredWinkelgesch)
+        else:
+            print("mach Nix")
+            print("desiredWinkelgesch:",desiredWinkelgesch)
