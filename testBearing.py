@@ -56,9 +56,13 @@ class TestBearing(unittest.TestCase):
 
     def test_calculateMeanBearing(self):
         bearingList1 = [Bearing(10),Bearing(350),Bearing(5),Bearing(355)]
-        bearingTupel1 =(Bearing(10),Bearing(350),Bearing(5),Bearing(355))
+        bearingTuple1 =(Bearing(10),Bearing(350),Bearing(5),Bearing(355))
+        bearingList2 = [Bearing(270),Bearing(90)]
+        
         self.assertEqual(Bearing.calculateMeanBearing(bearingList1).bearing,Bearing(0).bearing)
-        self.assertEqual(Bearing.calculateMeanBearing(bearingTupel1).bearing,Bearing(0).bearing)
+        self.assertEqual(Bearing.calculateMeanBearing(bearingTuple1).bearing,Bearing(0).bearing)
+        
+        self.assertEqual(Bearing.calculateMeanBearing(bearingList2),None)
 
 if __name__ == '__main__':
     unittest.main()

@@ -12,7 +12,7 @@ class Bearing():
                 return self.getDiffTo360degree(self)+self.getDiffTo360degree(bearing)
             else:
                 return -(self.getDiffTo360degree(self)+self.getDiffTo360degree(bearing))
-#Always returns positive values
+    #Always returns positive values
     def getDiffTo360degree(self,bearing):
         if bearing.bearing<=180:
             return bearing.bearing
