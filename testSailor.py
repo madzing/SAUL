@@ -16,7 +16,7 @@ sens.setWinkelgesch(0)
 sens.setCourseMadeGood(90)
 sens.setMeanCompassBearing(90)
 
-sailor.sail(desiredBearing)
+sailor.sail(desiredBearing,1)
 
 
 '''Test2
@@ -33,7 +33,7 @@ sens.setWinkelgesch(0)
 sens.setCourseMadeGood(90)
 sens.setMeanCompassBearing(100)
 
-sailor.sail(desiredBearing)
+sailor.sail(desiredBearing,1)
 
 '''Test3
 Erwartungshaltung: Schiff soll weiter nach links (Backbord) fahren!
@@ -49,7 +49,7 @@ sens.setWinkelgesch(0)
 sens.setCourseMadeGood(90)
 sens.setMeanCompassBearing(95)
 
-sailor.sail(desiredBearing)
+sailor.sail(desiredBearing,1)
 
 '''Test4
 Fahren hoch am Wind! Daher kann der Kurs nicht gefahren werden,
@@ -67,7 +67,7 @@ sens.setWinkelgesch(0)
 sens.setCourseMadeGood(30)
 sens.setMeanCompassBearing(30)
 
-sailor.sail(desiredBearing)
+sailor.sail(desiredBearing,1)
 
 '''Test5
 Wende machen! 
@@ -83,6 +83,6 @@ sens.setWinkelgesch(0)
 sens.setCourseMadeGood(30)
 sens.setMeanCompassBearing(30)
 
-sailor.sail(desiredBearing)
+sailor.sail(desiredBearing,1)
 
 

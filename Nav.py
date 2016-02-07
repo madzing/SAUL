@@ -20,7 +20,7 @@ class Nav:
         self.pos = self.sensorService.getPosition()
         self.checkWaypoints()
         dateTime = self.sensorService.getDateTime()
-        if  self.lastCalculation == None or getTimeDiff(lastCalculation, datetime) >= calculateNewEveryXSeconds:
+        if  self.lastCalculation == None or getTimeDiff(self.lastCalculation, datetime) >= calculateNewEveryXSeconds:
             self.calculateNewDesiredBearing()
             self.lastCalculation = dateTime
         return self.desiredBearing

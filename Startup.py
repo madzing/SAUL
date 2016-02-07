@@ -16,9 +16,9 @@ while true():
     runTime = time.time()
     ##################################################---> Hauptschleifeninhalt
     sensorService.setAllValues()
-    DesiredBearing = nav.getDesiredBearing(1)
-    sailor.sail(DesiredBearing)
-    ##################################################<--- Hauptschleifeninhalt
+    DesiredBearing = nav.getDesiredBearing(1)# @param calculate desired bearing every X seconds
+    sailor.sail(DesiredBearing,0.5)# @ param desired bearing , adjust rudder every X seconds
+    ##################################################<--- Hauptschleifeninhalt Ende
     endTime = time.time()
     wait = round((1/50)-(endTime-runTime),5)
     if wait > 0:
