@@ -51,3 +51,22 @@ sens.setMeanCompassBearing(95)
 
 sailor.sail(desiredBearing)
 
+'''Test4
+Fahren hoch am Wind! Daher kann der Kurs nicht gefahren werden,
+stattdessen wird 30 grad am Wind gefahren!
+Erwartungshaltung: Schiff soll nichts ändern!
+'''
+sens = Sensors()
+sailor = Sailor(sens)
+
+print ("\nTest4: Erwartungshaltung: Schiff soll nichts ändern!")
+desiredBearing = Bearing(0)
+sens.setWindDirection(0)
+sens.setCompassBearing(30)
+sens.setWinkelgesch(0)
+sens.setCourseMadeGood(30)
+sens.setMeanCompassBearing(30)
+
+sailor.sail(desiredBearing)
+
+

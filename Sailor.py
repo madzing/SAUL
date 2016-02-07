@@ -22,9 +22,9 @@ class Sailor:
         if math.fabs(windDirection.getDiffTo(desiredCompassBearing)) >= self.hoeheAmWind:
             self.adjustRudder(desiredCompassBearing,actualCompassBearing,winkelgesch)
         elif desiredBearing.getDiffTo(actualCompassBearing)>0:
-            self.adjustRudder(desiredBearing.add(30),actualCompassBearing,winkelgesch)
+            self.adjustRudder(windDirection.add(30),actualCompassBearing,winkelgesch)
         else:
-            self.adjustRudder(desiredBearing.substract(30),actualCompassBearing,winkelgesch)
+            self.adjustRudder(windDirection.substract(30),actualCompassBearing,winkelgesch)
         # adjust Sails -->
         self.adjustSails(actualCompassBearing,windDirection)
 
