@@ -13,13 +13,10 @@ class ServoControl():
     def getCurrentSailPos(self):
         return self.sailPos
 
-    def turnRight(self):
+    def turn(self,desiredWinkelgesch,winkelgesch):
         if self.rudderPos < self.rudderMax:
             self.rudderPos = self.rudderPos + 0.1
-        #--> steuer den servo über pwm
-    def turnLeft(self):
-        if self.rudderPos > self.rudderMin:
-            self.rudderPos = self.rudderPos - 0.1
+
     def changeSailPos(self,newPos):
         self.sailPos = newPos
         #--> steuer den servo über pwm

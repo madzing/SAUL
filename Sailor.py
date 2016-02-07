@@ -28,28 +28,14 @@ class Sailor:
         # adjust Sails -->
         self.adjustSails(actualCompassBearing,windDirection)
 
-<<<<<<< HEAD
-# funktioniert noch nicht. Durchschnitt von Kompasskursen berechen schwieriger als gedacht.
-    def calculateDesiredCompassBearing(self,actualCompassBearing,courseMadeGood,desiredBearing):
-        self.compassBearingList.append(actualCompassBearing)
-        lenList = len(self.compassBearingList)
-        if lenList > 10:
-            self.compassBearingList[0].pop()
-        if lenList >= 5:
-            meanCompassBearing = Bearing.calculateMeanBearing(self.compassBearingList)
+    def calculateDesiredCompassBearing(self,actualCompassBearing,meanCompassBearing,courseMadeGood,desiredBearing):
+        if type(meanCompassBearing) != "Bearing":
+            return desiredBearing
+        else:
             abdrift = meanCompassBearing.getDiffTo(courseMadeGood)
             if abdrift > 20:    #eine Abdrift größer 20 Grad hat wahrscheinlich andere Hintergründe
                 abdrift = 0
-            return desiredBearing.add(abdrift)
-        return desiredBearing
-=======
-    def calculateDesiredCompassBearing(self,actualCompassBearing,meanCompassBearing,courseMadeGood,desiredBearing):
-        abdrift = meanCompassBearing.getDiffTo(courseMadeGood)
-        if abdrift > 20:    #eine Abdrift größer 20 Grad hat wahrscheinlich andere Hintergründe
-            abdrift = 0
-        return desiredBearing.substract(abdrift)
-
->>>>>>> dc1e63636dbf2a96c705a4bbb47d390527d98909
+            return desiredBearing.substract(abdrift)
 
     def adjustSails(self,compassBearing,windDirection):
         self.servoControl.changeSailPos(math.fabs(compassBearing.getDiffTo(windDirection)))
@@ -59,13 +45,9 @@ class Sailor:
         desiredWinkelgesch = (bearingDiff * bearingDiff) / 20
         if bearingDiff < 0:
             desiredWinkelgesch = desiredWinkelgesch * -1
-        if winkelgesch < desiredWinkelgesch - self.toleranz:
-            self.servoControl.turnRight
-            print("turnRight")
-            print("desiredWinkelgesch:",desiredWinkelgesch)
-        elif winkelgesch > desiredWinkelgesch + self.toleranz:
-            self.servoControl.turnLeft
-            print("turnLeft")
+        if winkelgesch < desiredWinkelgesch - self.toleranz or winkelgesch > desiredWinkelgesch + self.toleranz:
+            print("mach was")
+            self.servoControl.turn(desiredWinkelgesch,winkelgesch)
             print("desiredWinkelgesch:",desiredWinkelgesch)
         else:
             print("mach Nix")
