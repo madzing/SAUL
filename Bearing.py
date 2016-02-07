@@ -2,8 +2,6 @@ import math
 class Bearing():
     def __init__(self,bearing):
             bearing = bearing % 360
-            if bearing < 0:
-                bearing = 360 - bearing
             self.bearing = bearing
 
     def getDiffTo(self,bearing):
