@@ -61,12 +61,12 @@ class Bearing():
                 x = x - math.sin(math.radians(360-element.bearing))
                 y = y + math.cos(math.radians(360-element.bearing))
         if x > 0 and y >= 0:
-            return 90 - math.degrees(math.atan(y/x))
+            return Bearing(90 - math.degrees(math.atan(y/x)))
         elif x >= 0 and y < 0:
-            return 180 - math.degrees(math.atan(x/math.fabs(y)))
+            return Bearing(180 - math.degrees(math.atan(x/math.fabs(y))))
         elif x < 0 and y <= 0:
-            return 270 - math.degrees(math.atan(math.fabs(y)/math.fabs(x)))
+            return Bearing(270 - math.degrees(math.atan(math.fabs(y)/math.fabs(x))))
         elif x <= 0 and y > 0:
-            return 360 - math.degrees(math.atan(math.fabs(x)/y))
+            return Bearing(360 - math.degrees(math.atan(math.fabs(x)/y)))
         else:
             return None
