@@ -22,9 +22,9 @@ class Sailor:
         if math.fabs(windDirection.getDiffTo(desiredCompassBearing)) >= self.hoeheAmWind:
             self.adjustRudder(desiredCompassBearing,actualCompassBearing,winkelgesch)
         elif desiredBearing.getDiffTo(actualCompassBearing)>0:
-            self.adjustRudder(desiredBearing.add(30),actualCompassBearing,winkelgesch)
+            self.adjustRudder(windDirection.add(30),actualCompassBearing,winkelgesch)
         else:
-            self.adjustRudder(desiredBearing.substract(30),actualCompassBearing,winkelgesch)
+            self.adjustRudder(windDirection.substract(30),actualCompassBearing,winkelgesch)
         # adjust Sails -->
         self.adjustSails(actualCompassBearing,windDirection)
 
@@ -38,7 +38,7 @@ class Sailor:
             meanCompassBearing = Bearing.calculateMeanBearing(self.compassBearingList)
             abdrift = meanCompassBearing.getDiffTo(courseMadeGood)
             if abdrift > 20:    #eine Abdrift größer 20 Grad hat wahrscheinlich andere Hintergründe
-                abdrift = 20
+                abdrift = 0
             return desiredBearing.add(abdrift)
         return desiredBearing
 

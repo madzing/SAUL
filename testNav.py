@@ -10,4 +10,4 @@ print("Nächster Wegpunkt : " + str(nav.nextWaypoint[1]) +" "+ str(nav.nextWaypo
 print("Schiffsposition   : " + str(nav.pos[0]) +" "+ str(nav.pos[1]))
 print("Kurs von Start zu Ziel : " + str(nav.calculate_initial_compass_bearing((nav.lastWaypoint[1],nav.lastWaypoint[2]),(nav.nextWaypoint[1],nav.nextWaypoint[2])).bearing))
 print("Direkter Kurs zum Ziel : " + str(nav.calculate_initial_compass_bearing((nav.pos[0],nav.pos[1]),(nav.nextWaypoint[1],nav.nextWaypoint[2])).bearing))
-print("Vorgeschlagener Kompasskurs : "+str(nav.getDesiredBearing(1).bearing))
+print("Vorgeschlagener Kurs : "+str(nav.getDesiredBearing(1).bearing))
