@@ -1,7 +1,8 @@
 from Sailor import Sailor
 from Sensors import Sensors
+from Bearing import Bearing
 
 sens = Sensors()
 sailor = Sailor(sens)
 
-sailor.sail(30)
+sailor.sail(Bearing(30))

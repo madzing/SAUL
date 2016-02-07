@@ -28,7 +28,6 @@ class Sailor:
         # adjust Sails -->
         self.adjustSails(actualCompassBearing,windDirection)
 
-# funktioniert noch nicht. Durchschnitt von Kompasskursen berechen schwieriger als gedacht.
     def calculateDesiredCompassBearing(self,actualCompassBearing,courseMadeGood,desiredBearing):
         self.compassBearingList.append(actualCompassBearing)
         lenList = len(self.compassBearingList)
@@ -38,7 +37,7 @@ class Sailor:
             meanCompassBearing = Bearing.calculateMeanBearing(self.compassBearingList)
             abdrift = meanCompassBearing.getDiffTo(courseMadeGood)
             if abdrift > 20:    #eine Abdrift größer 20 Grad hat wahrscheinlich andere Hintergründe
-                abdrift = 20
+                abdrift = 0
             return desiredBearing.add(abdrift)
         return desiredBearing
 
