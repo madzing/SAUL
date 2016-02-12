@@ -8,7 +8,7 @@ Boot:
 	Auftriebskörper komplett abgedichtet:
 		keine Beweglichen Teile gehen hinein/heraus
 	
-	Langkiel
+	Langkiel mit Ruder
 
 Sensoren und Technik:
 
