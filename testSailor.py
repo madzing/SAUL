@@ -76,7 +76,7 @@ sens = Sensors()
 sailor = Sailor(sens)
 
 print ("\nTest5: Erwartungshaltung: Schiff soll weiter nach links (Backbord) fahren!")
-desiredBearing = Bearing(270)
+desiredBearing = Bearing(330)
 sens.setWindDirection(0)
 sens.setCompassBearing(30)
 sens.setWinkelgesch(0)
